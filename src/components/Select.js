@@ -12,17 +12,6 @@ const Select = ({
   const wrapperRef = useRef(null);
   const labelId = label.toLowerCase().replace(/\s+/g, "-");
 
-  useState(() => {
-    console.log(
-      label,
-      multiple,
-      options
-        .map((o) => o.value)
-        .sort()
-        .join(".")
-    );
-  }, [value, multiple, options]);
-
   const toggleModal = () => {
     setAll(
       multiple &&
