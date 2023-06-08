@@ -4,6 +4,7 @@ import { utils, writeFileXLSX } from "xlsx";
 
 import IconChart from "@/components/IconChart";
 import PrivateSelect from "@/components/Select";
+import Grid from "@/components/Grid";
 
 const MEASUREMENTS = [
   "Raw numbers",
@@ -33,6 +34,7 @@ const getURLQueryParameterByName = (name, url = window.location.href) => {
 
 export default function App() {
   const [yearsAvailable, setYearsAvailable] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [years, setYears] = useState([]);
   const [countiesAvailable, _] = useState([
     "Alameda",
@@ -204,6 +206,7 @@ export default function App() {
   // https://docs.google.com/spreadsheets/d/1nJ3k0KXVrhXm8La-lOTpw8U7xL7Cc-GioANxxH5KsXE/edit#gid=0
   // Make sure share this link to the public, so anyone who has the link can open this spreedsheet
   const fetchData = async (sheet) => {
+    setLoading(true)
     const parser = new PublicGoogleSheetsParser();
     parser
       .parse("1nJ3k0KXVrhXm8La-lOTpw8U7xL7Cc-GioANxxH5KsXE", sheet)
@@ -258,6 +261,7 @@ export default function App() {
         setOffensesAvailable(_offenses);
         setFullRecords(items);
         setRaces(_races);
+        setLoading(false)
         filter(
           {
             races: _races,
@@ -452,12 +456,20 @@ export default function App() {
         </p>
       </div>
       <div className="chart-containers">
-        <IconChart
-          data={filteredRecords.chart}
-          races={RACES}
-          base={chartConfig.base}
-          measurement={measurement}
-        />
+        {
+          loading ?
+          <div className="loading-animation-centered">
+            <Grid />
+          </div>
+          :
+          <IconChart
+            data={filteredRecords.chart}
+            races={RACES}
+            base={chartConfig.base}
+            measurement={measurement}
+          />
+        }
+        
       </div>
       {/* <pre>{JSON.stringify(filteredRecords, null, 4)}</pre> */}
       <div className="buttons">
