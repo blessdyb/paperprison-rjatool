@@ -15,8 +15,8 @@ const MEASUREMENTS = [
 ];
 
 const RACES = {
-  Black: "Black",
   White: "White",
+  Black: "Black",
   Hispanic: "Latino",
   AAPI: "Asian / Pacific Islander"
   // Native: "Native American",
