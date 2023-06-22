@@ -339,6 +339,11 @@
   padding: 0 4px;
 }
 
+.loading-animation-centered {
+  display: flex;
+  justify-content: center;
+}
+
 .chart-selected {
   text-align: center;
   padding: 20px 0;
