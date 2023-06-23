@@ -62,7 +62,7 @@ const IconChart = ({ data, races, base, measurement }) => {
     "Rate per prior decision point"
   ].includes(measurement);
   if (measurement === "Raw numbers") {
-    scale = 1000;
+    scale = 10000;
   } else if (measurement === "Rate per prior decision point") {
     scale = 100;
   } else {
