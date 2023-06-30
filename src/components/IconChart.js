@@ -59,11 +59,11 @@ const IconChart = ({ data, races, base, measurement }) => {
   const isRawNumber = [
     "Raw numbers",
     "Rate per population",
-    "Rate per prior decision point"
+    "Rate per prior event point"
   ].includes(measurement);
   if (measurement === "Raw numbers") {
     scale = 10000;
-  } else if (measurement === "Rate per prior decision point") {
+  } else if (measurement === "Rate per prior event point") {
     scale = 100;
   } else {
     scale = 1;
@@ -96,7 +96,7 @@ const IconChart = ({ data, races, base, measurement }) => {
               <div className="chart-meta">
                 <div className="chart-scale">
                   <PersonIcon value={1} race={base} /> {scale}{" "}
-                  {!base ? (scale > 1 ? "Persons" : "Person ") : "White Person"}
+                  {!base ? (scale > 1 ? "Adults" : "Adult ") : "White Adult"}
                 </div>
               </div>
             </h3>
