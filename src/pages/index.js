@@ -131,29 +131,29 @@ export default function App() {
         </p>
         <h3>Customization</h3>
         <p>
-          You can customize the data provided by year, counties, decision
+          You can customize the data provided by year, counties, event
           points, measurement, and offenses. Data you see will depend upon your
           customization for each category.
         </p>
         <p>
           The tool allows you to walk through the offenses’ different stages and
-          observe how they play out throughout the decision points.
+          observe how they play out throughout the event points.
         </p>
         <h3>Offense Data</h3>
         <p>
           By default, you will see data about all offenses at the selected
-          decision point(s). For this first (May 2023) release, offense data
+          event point(s). For this first (May 2023) release, offense data
           includes the top twenty criminal offenses (see list below). The
           criminal offense data is limited to the top twenty offenses because
           the number of all offenses is large, with very small sample sizes for
           many offenses, especially at the county-specific level. Each Penal
           Code subsection is treated as a distinct offense. Some common offenses
           are for probation violations (e.g., Penal Code section 1203.2), and
-          their only corresponding decision point is arrest. For any given
+          their only corresponding event point is arrest. For any given
           incident, the offense charged at court and disposition may be
           different from the offense charged at arrest. So, the probability of a
-          particular outcome conditional on the prior decision point may reflect
-          imprecision going from arrest to court decision.
+          particular outcome conditional on the prior event point may reflect
+          imprecision going from arrest to court event.
         </p>
 
         <table>
@@ -268,45 +268,45 @@ export default function App() {
           provides calculations of the racial gap relative to White non-Hispanic
           individuals. The racial gap can be considered the relative chances
           that a person of the given race experiences a certain outcome or
-          decision, relative to the chances of a non-Hispanic White person,
+          decision, relative to the chances of a non-Hispanic White adult,
           given underlying populations. For example, suppose that in a
-          particular county, 2 Black people experience felony convictions per
-          100 Black people in the population, whereas only 1 per 100 White
-          non-Hispanic people experience the same felony conviction. Then the
+          particular county, 2 Black adults experience felony convictions per
+          100 Black adults in the population, whereas only 1 per 100 White
+          non-Hispanic adults experience the same felony conviction. Then the
           disparity gap for Black relative to White is 2/1 = 2.{" "}
         </p>
-        <h3>Decision Points</h3>
+        <h3>Event Points</h3>
         <p>
-          The decision points provide a different lens on the issue of disparity
+          The event points provide a different lens on the issue of disparity
           gap because the comparison of disparities at each step in the criminal
           justice process is conditional on the step that preceded it.
         </p>
         <p>
-          For instance, the decision point “Court” means that certain actions
+          For instance, the event point “Court” means that certain actions
           (i.e., a person was charged) took place at the court level.
         </p>
         <p>
-          Because each step represents a decision point where discretion is
+          Because each step represents a event point where discretion is
           exercised, the steps reveal disparities in outcomes for individuals
           who arguably are more similarly situated, in the specific sense of
-          having gotten to that stage in the process. You can select decision
+          having gotten to that stage in the process. You can select event
           points to view the rate at which each race experiences the indicated
           step in the process, conditional on reaching the step that precedes
           it, from arrest to court decision, conviction, and sentence. The
           conditional racial gap shows the relative chances that a person of the
           given race experiences a certain outcome or decision, relative to the
-          chances of a non-Hispanic White person, given that they have reached a
-          specific decision point. For example, suppose that in a particular
-          county, of 100 Black people charged with a specific offense in court,
-          50 are convicted, whereas 40 per 100 White non-Hispanic people charged
+          chances of a non-Hispanic White adult, given that they have reached a
+          specific event point. For example, suppose that in a particular
+          county, of 100 Black adults charged with a specific offense in court,
+          50 are convicted, whereas 40 per 100 White non-Hispanic adults charged
           with the same offense are convicted. Then the disparity gap for Black
           relative to White is 50/40 = 1.25.
         </p>
         <h3>Measurements</h3>
         <p>
           You can select five different metrics to view data on this site: raw
-          numbers, rate per population, rate per prior decision point, disparity
-          gap per population, and disparity gap per prior decision point.
+          numbers, rate per population, rate per prior event point, disparity
+          gap per population, and disparity gap per prior event point.
           Aspects of the data are described below.
         </p>
         <p>
@@ -354,11 +354,11 @@ export default function App() {
           <tr>
             <td>decision</td>
             <td>
-              The decision point: arrest, court decision, conviction, felony
+              The event point: arrest, court decision, conviction, felony
               conviction, prison sentence
             </td>
             <td></td>
-            <td>Decision Points</td>
+            <td>Event Points</td>
           </tr>
           <tr>
             <td>previous_decision</td>
@@ -397,7 +397,7 @@ export default function App() {
               this decision / number of previous step decision
             </td>
             <td>Percent</td>
-            <td>Rate per prior decision point</td>
+            <td>Rate per prior event point</td>
           </tr>
           <tr>
             <td>disparity_gap_cond_w</td>
@@ -406,7 +406,7 @@ export default function App() {
               rate_cond_previous / rate_cond_previous (white)
             </td>
             <td>Ratio: 1.00 means parity with whites</td>
-            <td>Disparity gap per prior decision point</td>
+            <td>Disparity gap per prior event point</td>
           </tr>
         </table>
         <p>Definitions of key metrics:</p>
@@ -423,17 +423,17 @@ export default function App() {
           would be 350/1000 = 0.35 per 100 population.{" "}
         </p>
         <p>
-          <b>Rate per prior decision point</b> measures the rate at which a
+          <b>Rate per prior event point</b> measures the rate at which a
           given event or decision occurs for a selected racial or ethnic group,
           relative to the number of people in that group at risk of that event.
           Specifically, it is the number of criminal justice decisions of the
           requested type for the requested ethnic group during the requested
           year, divided by the number of individuals of that group who had
-          reached the immediately prior step or decision point in the criminal
+          reached the immediately prior step or event point in the criminal
           justice process and were thus “at risk” of this decision. For example,
           suppose 100 Hispanic individuals in a particular county and year were
           charged in court with burglary (PC 459), and 60 were convicted of
-          burglary. Then the rate of conviction per prior decision point (charge
+          burglary. Then the rate of conviction per prior event point (charge
           in court) would be 60/100 = 0.6 or 60%.
         </p>
         <p>
@@ -441,24 +441,24 @@ export default function App() {
           of a given racial/ethnic group with that of non-Hispanic White
           individuals. The racial gap can be considered the relative chance that
           a person of the given race experiences a certain outcome or decision,
-          relative to the chances of a non-Hispanic White person, given
+          relative to the chances of a non-Hispanic White adult, given
           underlying populations. For example, suppose that in a particular
-          county in a particular year, 2 Black people experienced felony
-          convictions for burglary for every 100 Black people in the population,
-          whereas only 1 per 100 non-Hispanic White people experienced a felony
+          county in a particular year, 2 Black adults experienced felony
+          convictions for burglary for every 100 Black adults in the population,
+          whereas only 1 per 100 non-Hispanic White adults experienced a felony
           conviction for burglary. Then the disparity gap for Black relative to
           White is 2/1 = 2.{" "}
         </p>
         <p>
-          <b>Disparity gap per prior decision point</b> compares the rate per
-          prior decision point of a given racial/ethnic group with that of
+          <b>Disparity gap per prior event point</b> compares the rate per
+          prior event point of a given racial/ethnic group with that of
           non-Hispanic White individuals. It shows the relative chances that a
           person of the given race experiences a certain outcome or decision,
-          relative to the chances of a non-Hispanic White person, given that
-          they have reached a specific prior decision point. For example,
+          relative to the chances of a non-Hispanic White adult, given that
+          they have reached a specific prior event point. For example,
           suppose that in a particular county in a particular year, of 100 Black
-          people charged with burglary in court, 50 are convicted, whereas 40
-          per 100 White non-Hispanic people charged with the same offense are
+          adults charged with burglary in court, 50 are convicted, whereas 40
+          per 100 White non-Hispanic adults charged with the same offense are
           convicted. Then the disparity gap for Black relative to White is 50/40
           = 1.25.
         </p>

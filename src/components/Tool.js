@@ -9,9 +9,9 @@ import Grid from "@/components/Grid";
 const MEASUREMENTS = [
   "Raw numbers",
   "Rate per population",
-  "Rate per prior decision point",
+  "Rate per prior event point",
   "Disparity gap per population",
-  "Disparity gap per prior decision point"
+  "Disparity gap per prior event point"
 ];
 
 const RACES = {
@@ -224,14 +224,14 @@ export default function App() {
           item["Rate per population"] = isNaN(item.rate_per_100_pop)
             ? 0
             : item.rate_per_100_pop;
-          item["Rate per prior decision point"] = isNaN(item.rate_cond_previous)
+          item["Rate per prior event point"] = isNaN(item.rate_cond_previous)
             ? 0
             : item.rate_cond_previous;
 
           item["Disparity gap per population"] = isNaN(item.disparity_gap_pop_w)
             ? 0
             : item.disparity_gap_pop_w;
-          item["Disparity gap per prior decision point"] = isNaN(
+          item["Disparity gap per prior event point"] = isNaN(
             item.disparity_gap_cond_w
           )
             ? 0
@@ -340,8 +340,8 @@ export default function App() {
     setMeasurement(value);
     if (
       value === "Disparity gap per population" ||
-      value === "Disparity gap per prior decision point" ||
-      value === "Rate per prior decision point"
+      value === "Disparity gap per prior event point" ||
+      value === "Rate per prior event point"
     ) {
       setChartConfig({
         base: "white",
@@ -444,13 +444,13 @@ export default function App() {
           <span>
             {decisionPoints.length === decisionPointsAvailable.length
               ? "All Event Points"
-              : offenses.join(",")}
+              : offenses.join(", ")}
             ;
           </span>
           <span>
             {offenses.length === offensesAvailable.length
               ? "All Offenses"
-              : offenses.join(",")}
+              : offenses.join(", ")}
             ;
           </span>
         </p>
