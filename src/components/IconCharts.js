@@ -14,12 +14,12 @@ const PersonIcon = ({ value = 0, label = 0, race, onDisclaimerChange = () => {} 
   const maskHeight = {
     height: `${valueRoof * 100 - value * 100}%`,
   };
-  if (label < 20) {
+  if (label < 10) {
     onDisclaimerChange("N/A")
   }
   return (
     <div className="icon-chart-data">
-      {valueRoof > 0 && label > 20 ? (
+      {valueRoof > 0 && label >= 10 ? (
         Array(valueRoof)
           .fill(0)
           .map((_, index) => {
@@ -58,7 +58,33 @@ const PersonIcon = ({ value = 0, label = 0, race, onDisclaimerChange = () => {} 
 };
 
 const CHART_DISCLAIMER = {
-  "N/A": "N/A: Our tool does not display data for counties in which the population for a specific studied racial/ethnic group is 20 or fewer for the time period being represented.",
+  "N/A": "N/A: Our tool displays N/A when there are 10 or less underlying observations.",
+}
+
+const SCALE = {
+  100: 10,
+  500: 50,
+  1000: 100,
+  5000: 500,
+  10000: 1000,
+  50000: 5000,
+  100000: 10000,
+  500000: 50000,
+  1000000: 100000,
+  5000000: 500000,
+  10000000: 1000000
+}
+
+const getScale = (data) => {
+  let max = 0
+  data.forEach(({items}) => {
+    max = Math.max(...Object.values(items), max)
+  })
+  const list = Object.keys(SCALE).map(item => parseInt(item, 10)).concat([max])
+  return {
+    max,
+    scale: SCALE[`${list[list.sort((a,b) => a - b).indexOf(max) + 1]}`]
+  }
 }
 
 const IconCharInner = ({ chartData, races, base, measurement }) => {
@@ -69,14 +95,13 @@ const IconCharInner = ({ chartData, races, base, measurement }) => {
     "Rate per population",
     "Rate per prior event point",
   ].includes(measurement);
-  if (measurement === "Raw numbers") {
-    scale = 10000;
-  } else if (measurement === "Rate per prior event point") {
-    scale = 100;
-  } else {
-    scale = 1;
+  const yearData = JSON.parse(JSON.stringify({
+    ...chartData,
+    ...getScale(chartData.data),
+  }));
+  if (measurement === "Raw numbers" || measurement === "Rate per prior event point") {
+    scale = yearData.scale 
   }
-  const yearData = JSON.parse(JSON.stringify(chartData));
   const scaledYearData = yearData.data.map((yd) => {
     return {
       label: yd.label,
