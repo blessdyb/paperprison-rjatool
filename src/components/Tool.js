@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PublicGoogleSheetsParser from "public-google-sheets-parser";
 import { utils, writeFileXLSX } from "xlsx";
 
-import IconChart from "@/components/IconChart";
+import IconCharts from "@/components/IconCharts";
 import PrivateSelect from "@/components/Select";
 import Grid from "@/components/Grid";
 
@@ -462,7 +462,7 @@ export default function App() {
             <Grid />
           </div>
           :
-          <IconChart
+          <IconCharts
             data={filteredRecords.chart}
             races={RACES}
             base={chartConfig.base}
