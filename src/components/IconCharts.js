@@ -14,13 +14,20 @@ const PersonIcon = ({ value = 0, label = 0, race = '', scale = 1, onDisclaimerCh
   const maskHeight = {
     height: `${valueRoof * 100 - value * 100}%`,
   };
-  if (label < 10) {
+  if (valueRoof === 0 && scale !== 1) {
     onDisclaimerChange("N/A")
+  } else if (scale == 1 && valueRoof === 0) {
+    onDisclaimerChange("0.0")
   }
   return (
     <div className="icon-chart-data">
       {((valueRoof > 0 && label >= 10) || scale == 1) ? (
-        Array(valueRoof)
+        valueRoof === 0 ? (<div className="icon-chart-data-point">
+        <div className="icon-person icon-person-placeholder" />
+        <span className="icon-chart-data-point-mask">
+          <div className="icon-chart-data-label">0.0</div>
+        </span>
+      </div>) : Array(valueRoof)
           .fill(0)
           .map((_, index) => {
             return (
@@ -59,6 +66,7 @@ const PersonIcon = ({ value = 0, label = 0, race = '', scale = 1, onDisclaimerCh
 
 const CHART_DISCLAIMER = {
   "N/A": "N/A: Our tool displays N/A when when there are 10 or less underlying observations.",
+  "0.0": "Anywhere a disparity gap reads 0.0, it means that there were no white youth in the system at that point for a comparison of rates. Please see raw numbers and rates to see how youth of color are impacted by the decision point.",
 }
 
 const SCALE = {
@@ -109,16 +117,17 @@ const IconCharInner = ({ chartData, races, base, measurement }) => {
         acc[k] = {
           scaled: isRawNumber
             ? (yd.items[k] / scale).toFixed(2)
-            : (yd.items[k] / yd.records[k] / scale).toFixed(2),
+            : (yd.items[k] / (yd.records[k] || 1) / scale).toFixed(2),
           origin: isRawNumber
             ? yd.items[k]
-            : (yd.items[k] / yd.records[k]).toFixed(2),
+            : (yd.items[k] / (yd.records[k] || 1)).toFixed(2),
           scale,
         };
         return acc;
       }, {}),
     };
   });
+  console.log(yearData.data, scaledYearData)
   return (
     <div className="icon-chart" key={yearData.year}>
       <h3>
