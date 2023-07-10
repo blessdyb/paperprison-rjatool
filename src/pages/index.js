@@ -1,6 +1,5 @@
 import React from "react";
-import dynamic from 'next/dynamic';
-
+import dynamic from "next/dynamic";
 
 import GenericPage from "@/components/GenericPage";
 
@@ -133,8 +132,8 @@ export default function App() {
         </p>
         <h3>Customization</h3>
         <p>
-          You can customize the data provided by year, counties, event
-          points, measurement, and offenses. Data you see will depend upon your
+          You can customize the data provided by year, counties, event points,
+          measurement, and offenses. Data you see will depend upon your
           customization for each category.
         </p>
         <p>
@@ -143,19 +142,19 @@ export default function App() {
         </p>
         <h3>Offense Data</h3>
         <p>
-          By default, you will see data about all offenses at the selected
-          event point(s). For this first (May 2023) release, offense data
-          includes the top twenty criminal offenses (see list below). The
-          criminal offense data is limited to the top twenty offenses because
-          the number of all offenses is large, with very small sample sizes for
-          many offenses, especially at the county-specific level. Each Penal
-          Code subsection is treated as a distinct offense. Some common offenses
-          are for probation violations (e.g., Penal Code section 1203.2), and
-          their only corresponding event point is arrest. For any given
-          incident, the offense charged at court and disposition may be
-          different from the offense charged at arrest. So, the probability of a
-          particular outcome conditional on the prior event point may reflect
-          imprecision going from arrest to court event.
+          By default, you will see data about all offenses at the selected event
+          point(s). For this first (May 2023) release, offense data includes the
+          top twenty criminal offenses (see list below). The criminal offense
+          data is limited to the top twenty offenses because the number of all
+          offenses is large, with very small sample sizes for many offenses,
+          especially at the county-specific level. Each Penal Code subsection is
+          treated as a distinct offense. Some common offenses are for probation
+          violations (e.g., Penal Code section 1203.2), and their only
+          corresponding event point is arrest. For any given incident, the
+          offense charged at court and disposition may be different from the
+          offense charged at arrest. So, the probability of a particular outcome
+          conditional on the prior event point may reflect imprecision going
+          from arrest to court event.
         </p>
 
         <table>
@@ -270,12 +269,12 @@ export default function App() {
           provides calculations of the racial gap relative to White non-Hispanic
           individuals. The racial gap can be considered the relative chances
           that a person of the given race experiences a certain outcome or
-          decision, relative to the chances of a non-Hispanic White adult,
-          given underlying populations. For example, suppose that in a
-          particular county, 2 Black adults experience felony convictions per
-          100 Black adults in the population, whereas only 1 per 100 White
-          non-Hispanic adults experience the same felony conviction. Then the
-          disparity gap for Black relative to White is 2/1 = 2.{" "}
+          decision, relative to the chances of a non-Hispanic White adult, given
+          underlying populations. For example, suppose that in a particular
+          county, 2 Black adults experience felony convictions per 100 Black
+          adults in the population, whereas only 1 per 100 White non-Hispanic
+          adults experience the same felony conviction. Then the disparity gap
+          for Black relative to White is 2/1 = 2.{" "}
         </p>
         <h3>Event Points</h3>
         <p>
@@ -308,8 +307,8 @@ export default function App() {
         <p>
           You can select five different metrics to view data on this site: raw
           numbers, rate per population, rate per prior event point, disparity
-          gap per population, and disparity gap per prior event point.
-          Aspects of the data are described below.
+          gap per population, and disparity gap per prior event point. Aspects
+          of the data are described below.
         </p>
         <p>
           <b>Raw numbers</b> means the actual number of persons in that
@@ -425,8 +424,8 @@ export default function App() {
           would be 350/1000 = 0.35 per 100 population.{" "}
         </p>
         <p>
-          <b>Rate per prior event point</b> measures the rate at which a
-          given event or decision occurs for a selected racial or ethnic group,
+          <b>Rate per prior event point</b> measures the rate at which a given
+          event or decision occurs for a selected racial or ethnic group,
           relative to the number of people in that group at risk of that event.
           Specifically, it is the number of criminal justice decisions of the
           requested type for the requested ethnic group during the requested
@@ -435,8 +434,8 @@ export default function App() {
           justice process and were thus “at risk” of this decision. For example,
           suppose 100 Hispanic individuals in a particular county and year were
           charged in court with burglary (PC 459), and 60 were convicted of
-          burglary. Then the rate of conviction per prior event point (charge
-          in court) would be 60/100 = 0.6 or 60%.
+          burglary. Then the rate of conviction per prior event point (charge in
+          court) would be 60/100 = 0.6 or 60%.
         </p>
         <p>
           <b>Disparity gap per population</b> compares the rate per population
@@ -452,17 +451,16 @@ export default function App() {
           White is 2/1 = 2.{" "}
         </p>
         <p>
-          <b>Disparity gap per prior event point</b> compares the rate per
-          prior event point of a given racial/ethnic group with that of
-          non-Hispanic White individuals. It shows the relative chances that a
-          person of the given race experiences a certain outcome or decision,
-          relative to the chances of a non-Hispanic White adult, given that
-          they have reached a specific prior event point. For example,
-          suppose that in a particular county in a particular year, of 100 Black
-          adults charged with burglary in court, 50 are convicted, whereas 40
-          per 100 White non-Hispanic adults charged with the same offense are
-          convicted. Then the disparity gap for Black relative to White is 50/40
-          = 1.25.
+          <b>Disparity gap per prior event point</b> compares the rate per prior
+          event point of a given racial/ethnic group with that of non-Hispanic
+          White individuals. It shows the relative chances that a person of the
+          given race experiences a certain outcome or decision, relative to the
+          chances of a non-Hispanic White adult, given that they have reached a
+          specific prior event point. For example, suppose that in a particular
+          county in a particular year, of 100 Black adults charged with burglary
+          in court, 50 are convicted, whereas 40 per 100 White non-Hispanic
+          adults charged with the same offense are convicted. Then the disparity
+          gap for Black relative to White is 50/40 = 1.25.
         </p>
         <h3>Confidentiality Protections</h3>
         <p>
@@ -478,28 +476,25 @@ export default function App() {
       <GenericPage id="acknowledgements">
         <h2>Acknowledgement</h2>
         <p>
-          The styling creation of this website was inspired by the{" "}
+          The styling of this website was inspired by the{" "}
           <a href="https://californiadata.burnsinstitute.org/explore/counts#y=2018&c=1-58&o=1-60&d=1,7,15,17&a=5-24&g=f,m&e=a,b,l,n,w&m=dg">
             Burns Institute California State of Disparities Tool
           </a>
-          , whom we also acknowledge.
+          , whom we thank.
         </p>
         <p>
           This tool is the creation of Colleen Chien, Bill Sundstrom, Yabo Du,
           and Nathan Hoffman. Contributors include Arthi Kundadka, Navid
-          Shaghaghi, Yangxier Sui, and Lukas Pinkston.
+          Shaghaghi, Yangxier Sui, and Lukas Pinkston and Paper Prisons web and
+          tools team advisor Navid Shaghaghi.
         </p>
         <p>
-          Paper Prisons web and tools team and advisors are: Navid Shaghaghi,
-          Yabo Du, Arthi Kundadka Amy Allshouse, Nathan Hoffman, Ellen
-          Kreitzberg.
-        </p>
-        <p>
-          More details about the RJA can be found at:
+          For more information about the RJA, please see:
           <ul>
             <li>
               Proving Actionable Racial Disparity Under the California Racial
-              Justice Act
+              Justice Act (exploring the disparities standard of the RJA and how
+              to apply it)
               <br />
               <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4392014">
                 https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4392014
@@ -521,8 +516,8 @@ export default function App() {
             Paper Prison Initiative
           </a>
           of Santa Clara University conducts empirical research to explore the
-          gap between second chance and related laws on the books and the
-          delivery of relief from the criminal justice system due to the
+          gap between eligibility under the law and delivery of second chances
+          and related relief from the criminal justice system due to the
           administration of the law.
         </p>
       </GenericPage>

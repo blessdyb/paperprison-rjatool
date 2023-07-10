@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PublicGoogleSheetsParser from "public-google-sheets-parser";
 import { utils, writeFileXLSX } from "xlsx";
 
-import {IconCharts, PersonIcon} from "@/components/IconCharts";
+import { IconCharts, PersonIcon } from "@/components/IconCharts";
 import PrivateSelect from "@/components/Select";
 import Grid from "@/components/Grid";
 
@@ -11,8 +11,9 @@ const MEASUREMENTS_MAP = {
   "Rate per population": "Rate per 1,000 youth",
   "Rate per prior event point": "Rate per prior decision point",
   "Disparity gap per population": "Disparity gap per 1,000 youth",
-  "Disparity gap per prior event point": "Disparity gap per prior decision point"
-}
+  "Disparity gap per prior event point":
+    "Disparity gap per prior decision point",
+};
 
 const MEASUREMENTS = Object.keys(MEASUREMENTS_MAP);
 
@@ -20,7 +21,7 @@ const RACES = {
   White: "White",
   Black: "Black",
   Hispanic: "Latino",
-  AAPI: "Asian / Pacific Islander"
+  AAPI: "Asian / Pacific Islander",
   // Native: "Native American",
   // Other: "Other"
 };
@@ -96,7 +97,7 @@ export default function App() {
     "Tuolumne",
     "Ventura",
     "Yolo",
-    "Yuba"
+    "Yuba",
   ]);
   const [county, setCounty] = useState("Santa Clara");
   const [decisionPointsAvailable, setDecisionPointsAvailable] = useState([]);
@@ -107,12 +108,12 @@ export default function App() {
   const [measurement, setMeasurement] = useState("Raw numbers");
   const [chartConfig, setChartConfig] = useState({
     ratio: 1,
-    base: null
+    base: null,
   });
   const [fullRecords, setFullRecords] = useState([]);
   const [filteredRecords, setFilteredRecords] = useState({
     raw: [],
-    chart: []
+    chart: [],
   });
   const [showTable, setShowTable] = useState(false);
 
@@ -150,20 +151,20 @@ export default function App() {
       if (!acc[item.Year]) {
         acc[item.Year] = {
           year: item.Year,
-          data: {}
+          data: {},
         };
       }
       if (!acc[item.Year].data[item["Event Point"]]) {
         acc[item.Year].data[item["Event Point"]] = {
           label: item["Event Point"],
           items: {},
-          records: {}
+          records: {},
         };
       }
       if (!acc[item.Year].data[item["Event Point"]].items[item["Offenses"]]) {
         acc[item.Year].data[item["Event Point"]].items[item["Offenses"]] = {
           label: item["Offenses"],
-          items: {}
+          items: {},
         };
       }
       acc[item.Year].data[item["Event Point"]].items[item["Offenses"]].items[
@@ -201,26 +202,26 @@ export default function App() {
           return d;
         });
         return item;
-      })
+      }),
     });
   };
 
   // https://docs.google.com/spreadsheets/d/1nJ3k0KXVrhXm8La-lOTpw8U7xL7Cc-GioANxxH5KsXE/edit#gid=0
   // Make sure share this link to the public, so anyone who has the link can open this spreedsheet
   const fetchData = async (sheet) => {
-    setLoading(true)
+    setLoading(true);
     const parser = new PublicGoogleSheetsParser();
     parser
       .parse("1nJ3k0KXVrhXm8La-lOTpw8U7xL7Cc-GioANxxH5KsXE", sheet)
       .then((originItems) => {
-        const _years = [];
+        let _years = [];
         const _decisionPoints = [];
         const _offenses = [];
         const _races = [];
         const items = originItems.map((item) => {
           item.Offenses = item.PC_offense;
           item.Race = item.race;
-          item.Year = item.year || "All";
+          item.Year = item.year || "2010-2021";
           item["Event Point"] = item.decision;
           item["Raw numbers"] = item.number;
           item["Rate per population"] = isNaN(item.rate_per_100_pop)
@@ -254,23 +255,32 @@ export default function App() {
             _races.push(item["Race"]);
           }
         });
-        const mostRecentYear = _years.sort()[_years.length - 1];
+        _years = _years.reverse().sort((a, b) => {
+          if (a === "2010-2021") {
+            return -1
+          } else if (b === "2010-2021") {
+            return 1
+          } else {
+            return b - a
+          }
+        })
+        const mostRecentYear = _years[0];
         setYears([mostRecentYear]);
-        setYearsAvailable(_years.reverse());
+        setYearsAvailable(_years);
         setDecisionPointsAvailable(_decisionPoints);
         setDecisionPoints(_decisionPoints);
         setOffenses(_offenses);
         setOffensesAvailable(_offenses);
         setFullRecords(items);
         setRaces(_races);
-        setLoading(false)
+        setLoading(false);
         filter(
           {
             races: _races,
             decisionPoints: decisionPoints,
             offenses: _offenses,
             years: [mostRecentYear],
-            measurement
+            measurement,
           },
           items
         );
@@ -290,7 +300,7 @@ export default function App() {
       decisionPoints,
       years,
       offenses,
-      measurement
+      measurement,
     });
   };
 
@@ -301,7 +311,7 @@ export default function App() {
       decisionPoints,
       years: values,
       offenses,
-      measurement
+      measurement,
     });
   };
 
@@ -312,7 +322,7 @@ export default function App() {
       decisionPoints: values,
       offenses,
       years,
-      measurement
+      measurement,
     });
   };
 
@@ -323,7 +333,7 @@ export default function App() {
       decisionPoints,
       offenses,
       years,
-      measurement
+      measurement,
     });
   };
 
@@ -334,7 +344,7 @@ export default function App() {
       decisionPoints,
       offenses: values,
       years,
-      measurement
+      measurement,
     });
   };
 
@@ -347,17 +357,17 @@ export default function App() {
     ) {
       setChartConfig({
         base: "white",
-        ratio: 0.01
+        ratio: 0.01,
       });
     } else if (value === "Raw numbers") {
       setChartConfig({
         base: null,
-        ratio: 1
+        ratio: 1,
       });
     } else {
       setChartConfig({
         base: null,
-        ratio: 0.1
+        ratio: 0.1,
       });
     }
     filter({
@@ -365,17 +375,17 @@ export default function App() {
       decisionPoints,
       offenses,
       years,
-      measurement: value
+      measurement: value,
     });
   };
 
   return (
     <div className="tool" id="tool">
       <p className="generic-page">
-        This tool visualizes the disparity in treatment of different racial
-        groups within the criminal justice system across counties in California,
-        providing evidence of racial inequality that supports the California
-        Racial Justice Act.
+        This site provides summary data representing the raw numbers, rates per
+        population, and disparity gaps by race of adults in the California
+        criminal justice system using data provded by the California Department
+        of Justice.
       </p>
       <div className="filters">
         <div>Customize: </div>
@@ -388,7 +398,7 @@ export default function App() {
             onChange={onYearChange}
             options={yearsAvailable.map((y) => ({
               text: y,
-              value: y
+              value: y,
             }))}
           />
         </div>
@@ -400,7 +410,7 @@ export default function App() {
             onChange={onCountyChange}
             options={countiesAvailable.map((county) => ({
               text: county,
-              value: county
+              value: county,
             }))}
           />
         </div>
@@ -412,7 +422,7 @@ export default function App() {
             onChange={onDecisionPointChange}
             options={decisionPointsAvailable.map((dp) => ({
               text: dp,
-              value: dp
+              value: dp,
             }))}
           />
         </div>
@@ -424,7 +434,7 @@ export default function App() {
             onChange={onOffensesChange}
             options={offensesAvailable.map((o) => ({
               text: o,
-              value: o
+              value: o,
             }))}
           />
         </div>
@@ -435,7 +445,7 @@ export default function App() {
             onChange={onMeasurementsChange}
             options={MEASUREMENTS.map((m) => ({
               text: m,
-              value: m
+              value: m,
             }))}
           />
         </div>
@@ -458,20 +468,18 @@ export default function App() {
         </p>
       </div>
       <div className="chart-containers">
-        {
-          loading ?
+        {loading ? (
           <div className="loading-animation-centered">
             <Grid />
           </div>
-          :
+        ) : (
           <IconCharts
             data={filteredRecords.chart}
             races={RACES}
             base={chartConfig.base}
             measurement={measurement}
           />
-        }
-        
+        )}
       </div>
       {/* <pre>{JSON.stringify(filteredRecords, null, 4)}</pre> */}
       <div className="buttons">
