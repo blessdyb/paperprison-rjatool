@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import PublicGoogleSheetsParser from "public-google-sheets-parser";
 import { utils, writeFileXLSX } from "xlsx";
 
-import IconCharts from "@/components/IconCharts";
+import {IconCharts, PersonIcon} from "@/components/IconCharts";
 import PrivateSelect from "@/components/Select";
 import Grid from "@/components/Grid";
 
-const MEASUREMENTS = [
-  "Raw numbers",
-  "Rate per population",
-  "Rate per prior event point",
-  "Disparity gap per population",
-  "Disparity gap per prior event point"
-];
+const MEASUREMENTS_MAP = {
+  "Raw numbers": "Raw numbers",
+  "Rate per population": "Rate per 1,000 youth",
+  "Rate per prior event point": "Rate per prior decision point",
+  "Disparity gap per population": "Disparity gap per 1,000 youth",
+  "Disparity gap per prior event point": "Disparity gap per prior decision point"
+}
+
+const MEASUREMENTS = Object.keys(MEASUREMENTS_MAP);
 
 const RACES = {
   White: "White",
@@ -218,7 +220,7 @@ export default function App() {
         const items = originItems.map((item) => {
           item.Offenses = item.PC_offense;
           item.Race = item.race;
-          item.Year = item.year;
+          item.Year = item.year || "All";
           item["Event Point"] = item.decision;
           item["Raw numbers"] = item.number;
           item["Rate per population"] = isNaN(item.rate_per_100_pop)
@@ -254,7 +256,7 @@ export default function App() {
         });
         const mostRecentYear = _years.sort()[_years.length - 1];
         setYears([mostRecentYear]);
-        setYearsAvailable(_years);
+        setYearsAvailable(_years.reverse());
         setDecisionPointsAvailable(_decisionPoints);
         setDecisionPoints(_decisionPoints);
         setOffenses(_offenses);
@@ -381,6 +383,7 @@ export default function App() {
           <PrivateSelect
             label="Years"
             multiple={true}
+            disableAll={true}
             value={years}
             onChange={onYearChange}
             options={yearsAvailable.map((y) => ({
@@ -440,7 +443,7 @@ export default function App() {
       <div className="chart-selected">
         <h2>{county}</h2>
         <p>
-          <span>{measurement};</span>
+          <span>{MEASUREMENTS_MAP[measurement]};</span>
           <span>
             {decisionPoints.length === decisionPointsAvailable.length
               ? "All Event Points"

@@ -5,6 +5,7 @@ const Select = ({
   value = null,
   options = [],
   multiple = false,
+  disableAll = false,
   onChange = () => {}
 }) => {
   const [all, setAll] = useState(false);
@@ -84,7 +85,7 @@ const Select = ({
         <div ref={wrapperRef} className="modal-wrapper">
           <h3>{label}</h3>
           <ul className={`modal-${labelId}`}>
-            {multiple && (
+            {multiple && !disableAll && (
               <li onClick={onAllToggle}>
                 <input type="checkbox" checked={all} />
                 All

@@ -183,4 +183,7 @@ const IconCharts = ({ data, races, base, measurement }) => {
   );
 };
 
-export default IconCharts;
+export {
+  IconCharts,
+  PersonIcon,
+}
