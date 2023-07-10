@@ -9,7 +9,7 @@ const formatNumber = (number) => {
   }
 };
 
-const PersonIcon = ({ value = 0, label = 0, race, onDisclaimerChange = () => {} }) => {
+const PersonIcon = ({ value = 0, label = 0, race = '', scale = 1, onDisclaimerChange = () => {} }) => {
   const valueRoof = Math.ceil(value);
   const maskHeight = {
     height: `${valueRoof * 100 - value * 100}%`,
@@ -19,7 +19,7 @@ const PersonIcon = ({ value = 0, label = 0, race, onDisclaimerChange = () => {} 
   }
   return (
     <div className="icon-chart-data">
-      {valueRoof > 0 && label >= 10 ? (
+      {((valueRoof > 0 && label >= 10) || scale == 1) ? (
         Array(valueRoof)
           .fill(0)
           .map((_, index) => {
@@ -125,7 +125,7 @@ const IconCharInner = ({ chartData, races, base, measurement }) => {
         {yearData.year}
         <div className="chart-meta">
           <div className="chart-scale">
-            <PersonIcon value={1} race={base} /> {scale}{" "}
+            <PersonIcon value={1} race={base} scale={1} /> {scale}{" "}
             {!base ? (scale > 1 ? "Adults" : "Adult ") : "White Adult"}
           </div>
         </div>
@@ -140,7 +140,7 @@ const IconCharInner = ({ chartData, races, base, measurement }) => {
                 <div className="icon-chart-rows">
                   {base && (
                     <div className="icon-chart-row">
-                      <PersonIcon value={1} race={base} />
+                      <PersonIcon value={1} race={base} scale={1} label={1}/>
                     </div>
                   )}
                   {scaledYearData.map((raceData, raceDataIndex) => {
@@ -150,6 +150,7 @@ const IconCharInner = ({ chartData, races, base, measurement }) => {
                         <PersonIcon
                           value={raceData?.items[raceItem]?.scaled}
                           race={raceItem}
+                          scale={scale}
                           label={raceData?.items[raceItem]?.origin}
                           onDisclaimerChange={setDisclaimer}
                         />
