@@ -26,6 +26,14 @@
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
+.sub-nav-wrapper {
+  display: flex;
+  margin: 0 auto;
+  padding: 10px 10px 50px;
+  max-width: 1280px;
+  justify-content: space-around;
+}
+
 .icon-person {
   height: 38px;
   width: 18.89px;
@@ -292,7 +300,7 @@
 .inner-anchors a {
   display: block;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
   color: #1a73e8;
   margin-top: 16px;
 }

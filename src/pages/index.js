@@ -16,12 +16,14 @@ export default function App() {
     <DynamicLayout>
       <div className="inner-anchors">
         <h2>PaperPrison RJA Tool</h2>
-        <a href="?#tool">The Tool</a>
-        <a href="?#about-the-tool">About the Tool</a>
-        <a href="?#about-the-data">About the Data</a>
-        <a href="?#methodology">Methodology</a>
-        <a href="?#acknowledgements">Acknowledgments</a>
-        <a href="?#about-the-initiative">About the Initiative</a>
+        <div className="sub-nav-wrapper">
+          <a href="?#tool">The Tool</a>
+          <a href="?#about-the-tool">About the Tool</a>
+          <a href="?#about-the-data">About the Data</a>
+          <a href="?#methodology">Methodology</a>
+          <a href="?#acknowledgements">Acknowledgments</a>
+          <a href="?#about-the-initiative">About the Initiative</a>
+        </div>
       </div>
       <DynamicTool />
       <GenericPage id="about-the-tool">

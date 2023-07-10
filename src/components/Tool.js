@@ -451,7 +451,6 @@ export default function App() {
             {offenses.length === offensesAvailable.length
               ? "All Offenses"
               : offenses.join(", ")}
-            ;
           </span>
         </p>
       </div>

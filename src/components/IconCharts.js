@@ -58,7 +58,7 @@ const PersonIcon = ({ value = 0, label = 0, race, onDisclaimerChange = () => {} 
 };
 
 const CHART_DISCLAIMER = {
-  "N/A": "N/A: Our tool displays N/A when there are 10 or less underlying observations.",
+  "N/A": "N/A: Our tool displays N/A when when there are 10 or less underlying observations.",
 }
 
 const SCALE = {
