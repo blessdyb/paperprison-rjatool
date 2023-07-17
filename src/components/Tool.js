@@ -221,7 +221,7 @@ export default function App() {
         const items = originItems.map((item) => {
           item.Offenses = item.PC_offense;
           item.Race = item.race;
-          item.Year = item.year || "2010-2021";
+          item.Year = item.year || "All years";
           item["Event Point"] = item.decision;
           item["Raw numbers"] = item.number;
           item["Rate per population"] = isNaN(item.rate_per_100_pop)
@@ -384,7 +384,7 @@ export default function App() {
       <p className="generic-page">
         This site provides summary data representing the raw numbers, rates per
         population, and disparity gaps by race of adults in the California
-        criminal justice system using data provded by the California Department
+        criminal justice system using data provided by the California Department
         of Justice.
       </p>
       <div className="filters">
