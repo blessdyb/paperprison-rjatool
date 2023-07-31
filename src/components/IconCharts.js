@@ -127,7 +127,6 @@ const IconCharInner = ({ chartData, races, base, measurement }) => {
       }, {}),
     };
   });
-  console.log(yearData.data, scaledYearData)
   return (
     <div className="icon-chart" key={yearData.year}>
       <h3>
@@ -172,6 +171,7 @@ const IconCharInner = ({ chartData, races, base, measurement }) => {
           })}
       </div>
       {CHART_DISCLAIMER[disclaimer] && (<p className="icon-chart-disclaimer">{CHART_DISCLAIMER[disclaimer]}</p>)}
+      {measurement.indexOf("Disparity gap") > -1 && (<p className="icon-chart-disclaimer">No disparity gap information is available for arrests because they are the beginning of the process.</p>)}
     </div>
   );
 };

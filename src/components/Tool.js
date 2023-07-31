@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import PublicGoogleSheetsParser from "public-google-sheets-parser";
 import { utils, writeFileXLSX } from "xlsx";
 
-import { IconCharts, PersonIcon } from "@/components/IconCharts";
+import { IconCharts } from "@/components/IconCharts";
+import DataTable from "@/components/DataTable";
 import PrivateSelect from "@/components/Select";
 import Grid from "@/components/Grid";
 
@@ -257,13 +258,13 @@ export default function App() {
         });
         _years = _years.reverse().sort((a, b) => {
           if (a === "2010-2021") {
-            return -1
+            return -1;
           } else if (b === "2010-2021") {
-            return 1
+            return 1;
           } else {
-            return b - a
+            return b - a;
           }
-        })
+        });
         const mostRecentYear = _years[0];
         setYears([mostRecentYear]);
         setYearsAvailable(_years);
@@ -452,20 +453,15 @@ export default function App() {
       </div>
       <div className="chart-selected">
         <h2>{county}</h2>
-        <p>
-          <span>{MEASUREMENTS_MAP[measurement]};</span>
-          <span>
-            {decisionPoints.length === decisionPointsAvailable.length
+        <p dangerouslySetInnerHTML={{__html: [
+            MEASUREMENTS_MAP[measurement],
+            decisionPoints.length === decisionPointsAvailable.length
               ? "All Event Points"
-              : offenses.join(", ")}
-            ;
-          </span>
-          <span>
-            {offenses.length === offensesAvailable.length
+              : offenses.join(", "),
+            offenses.length === offensesAvailable.length
               ? "All Offenses"
-              : offenses.join(", ")}
-          </span>
-        </p>
+              : offenses.join(", "),
+          ].filter(item => !!item).map(item => `<span>${item}</span>`).join(";")}} />
       </div>
       <div className="chart-containers">
         {loading ? (
@@ -494,26 +490,7 @@ export default function App() {
         </div>
       </div>
       {showTable && filteredRecords.raw.length > 0 && (
-        <table className="ui celled table">
-          <thead>
-            <tr>
-              {Object.keys(filteredRecords.raw[0]).map((r) => (
-                <th key={r}>{r}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {filteredRecords.raw.map((row, rIndex) => {
-              return (
-                <tr key={rIndex}>
-                  {Object.keys(filteredRecords.raw[0]).map((k) => (
-                    <td key={k}>{row[k]}</td>
-                  ))}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <DataTable data={filteredRecords.raw} />
       )}
     </div>
   );
