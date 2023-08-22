@@ -27,11 +27,16 @@
 }
 
 .sub-nav-wrapper {
-  display: flex;
   margin: 0 auto;
   padding: 10px 10px 50px;
   max-width: 1280px;
   justify-content: space-around;
+}
+
+@media (min-width: 900px), print {
+  .sub-nav-wrapper {
+    display: flex;
+  } 
 }
 
 .icon-person {
