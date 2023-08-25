@@ -133,7 +133,7 @@ const IconCharInner = ({ chartData, races, base, measurement }) => {
         {yearData.year}
         <div className="chart-meta">
           <div className="chart-scale">
-            <PersonIcon value={1} race={base} scale={1} /> {scale}{" "}
+            <PersonIcon value={1} race={base} scale={1} /> {scale.toLocaleString()}{" "}
             {!base ? (scale > 1 ? "Adults" : "Adult ") : "White Adult"}
           </div>
         </div>
