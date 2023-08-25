@@ -143,7 +143,7 @@ export default function App() {
         <h3>Offense Data</h3>
         <p>
           By default, you will see data about all offenses at the selected event
-          point(s). For this first (May 2023) release, offense data includes the
+          point(s). For this first release, offense data includes the
           top twenty criminal offenses (see list below). The criminal offense
           data is limited to the top twenty offenses because the number of all
           offenses is large, with very small sample sizes for many offenses,
@@ -287,7 +287,7 @@ export default function App() {
           (i.e., a person was charged) took place at the court level.
         </p>
         <p>
-          Because each step represents a event point where discretion is
+          Because each step represents a event point where discretion is   
           exercised, the steps reveal disparities in outcomes for individuals
           who arguably are more similarly situated, in the specific sense of
           having gotten to that stage in the process. You can select event
@@ -319,7 +319,7 @@ export default function App() {
           population data from the American Community Survey (ACS), which is a
           large national survey run by the U.S. Census. All of our population
           estimates for different ethnicities use the 5-year ACS sample for the
-          combined period 2016-2020.
+          combined period 2016-2020. ACS summary tables were accessed through the Census Bureau API interface (see https://www.census.gov/programs-surveys/acs/data/data-via-api.html), using the R package tidycensus (see https://walker-data.com/tidycensus/ ).
         </p>
         <table>
           <tr>
@@ -466,7 +466,7 @@ export default function App() {
         <p>
           Due to confidentiality concerns, our website does not display data for
           counties in which the population for a specific studied racial/ethnic
-          group is 20 or fewer for the year being viewed. County data that are
+          group is 10 or fewer for the year being viewed. County data that are
           hidden when individual counties are selected will always be shown
           within statewide totals, as well as when multiple counties are
           selected and youth confidentiality is not at risk. Our charts and

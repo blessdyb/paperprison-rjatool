@@ -9,9 +9,9 @@ import Grid from "@/components/Grid";
 
 const MEASUREMENTS_MAP = {
   "Raw numbers": "Raw numbers",
-  "Rate per population": "Rate per 1,000 youth",
+  "Rate per population": "Rate per 1,000 adult",
   "Rate per prior event point": "Rate per prior decision point",
-  "Disparity gap per population": "Disparity gap per 1,000 youth",
+  "Disparity gap per population": "Disparity gap per 1,000 adult",
   "Disparity gap per prior event point":
     "Disparity gap per prior decision point",
 };
