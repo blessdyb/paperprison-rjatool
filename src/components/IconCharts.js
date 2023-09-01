@@ -66,7 +66,7 @@ const PersonIcon = ({ value = 0, label = 0, race = '', scale = 1, onDisclaimerCh
 
 const CHART_DISCLAIMER = {
   "N/A": "N/A: Our tool displays N/A when when there are 10 or less underlying observations.",
-  "0.0": "Anywhere a disparity gap reads 0.0, it means that there were no white adults in the system at that point for a comparison of rates. Please see raw numbers and rates to see how adulths of color are impacted by the decision point.",
+  "0.0": "Anywhere a disparity gap reads 0.0, it means that there were no white adults in the system at that point for a comparison of rates. Please see raw numbers and rates to see how adults of color are impacted by the decision point.",
 }
 
 const SCALE = {
