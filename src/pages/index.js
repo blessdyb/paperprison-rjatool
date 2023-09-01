@@ -110,7 +110,7 @@ export default function App() {
           (ACHS) through a data sharing agreement. The Paper Prison Initiative
           requested these data through public records act requests. Our records
           were downloaded between 9/23/2021 and 9/29/2021; the data we present
-          therefore ranges from 2010 through most of 2021. Among its known
+          therefore ranges from 2010 through most of 2021.<b>*</b> Among its known
           disadvantages are that it does not include information on legal
           representation, plea-bargaining, or the conditions of the arrest (such
           as whether or not a weapon was present) which might legitimately be
@@ -121,6 +121,8 @@ export default function App() {
           fundamental limitations to the Automated Criminal History System set
           up and maintained by CA DOJ.
         </p>
+
+        <p><b>*</b>2020 and 2021 rates per population are adjusted upward to account for apparent undercount in those years. The adjustment factor is to take the count of incidents and inflate it by a factor of mean_total#incidents(2015-2019)/total#incidents(2020 or 2021).</p>
       </GenericPage>
       <GenericPage id="methodology">
         <h2>Methodology</h2>
@@ -510,25 +512,12 @@ export default function App() {
             </li>
           </ul>
         </p>
-        <p>
-          The
-          <a href="https://paperprisons.org/about.html">
-            Paper Prison Initiative
-          </a>
-          of Santa Clara University conducts empirical research to explore the
-          gap between eligibility under the law and delivery of second chances
-          and related relief from the criminal justice system due to the
-          administration of the law.
-        </p>
+
       </GenericPage>
       <GenericPage id="about-the-initiative">
         <h2>About the Initiative</h2>
         <p>
-          The Paper Prison Initiative conducts empirical research to explore the
-          gap between eligibility for second chance and related relief from the
-          criminal justice system available under the law and its delivery due
-          to hurdles in access to relevant information and data which interfere
-          with the administration of the law.
+          The Paper Prisons Initiative (paperprisons.org) is a multi-disciplinary research initiative focused on documenting and narrowing the “second chance gap” between eligibility for relief from the criminal justice system and its delivery due to hurdles in access to relevant information and data. The paper that describes the concept of the “second chance gap” is Colleen V. Chien, “America’s Paper Prisons: The Second Chance Gap,”119 Mich. L. Rev. 519 (2020)
         </p>
       </GenericPage>
     </DynamicLayout>
