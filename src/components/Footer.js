@@ -4,21 +4,7 @@ const Footer = () => {
   return (
     <div className="disclaimer footer">
       <a href="mailto:info@paperprisons.org">info@paperprisons.org</a>
-      {/*<p>
-        A project of
-        <br />
-        Santa Clara University
-      </p>
-      <div>
-       <a href="https://www.scu.edu" target="__blank">
-          <img
-            src="https://paperprisons.org/images/partners/scu-seal.png"
-            alt="Santa Clara University"
-          />
-        </a>
-  </div>*/}
-
-      <p> © 2023 Paper Prisons Initiative</p>
+      <p> © 2023 Paper Prison Initiative</p>
       <p>
         <a href="https://paperprisons.org/privacypolicy.html">Privacy Policy</a>{" "}
         |{" "}

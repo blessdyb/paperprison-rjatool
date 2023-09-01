@@ -471,7 +471,7 @@ export default function App() {
           group is 10 or fewer for the year being viewed. County data that are
           hidden when individual counties are selected will always be shown
           within statewide totals, as well as when multiple counties are
-          selected and youth confidentiality is not at risk. Our charts and
+          selected and confidentiality is not at risk. Our charts and
           tables will show gaps and/or "N/A" when data are not available.
         </p>
       </GenericPage>
@@ -479,8 +479,11 @@ export default function App() {
         <h2>Acknowledgement</h2>
         <p>
           The styling of this website was inspired by the{" "}
+          <a href="https://californiadata.burnsinstitute.org/about">
+            California State of Disparities 
+          </a> website, a data project of the the{" "}
           <a href="https://californiadata.burnsinstitute.org/explore/counts#y=2018&c=1-58&o=1-60&d=1,7,15,17&a=5-24&g=f,m&e=a,b,l,n,w&m=dg">
-            Burns Institute California State of Disparities Tool
+            Burns Institute
           </a>
           , whom we thank.
         </p>
@@ -512,7 +515,6 @@ export default function App() {
             </li>
           </ul>
         </p>
-
       </GenericPage>
       <GenericPage id="about-the-initiative">
         <h2>About the Initiative</h2>
