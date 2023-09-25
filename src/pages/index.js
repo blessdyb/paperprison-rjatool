@@ -1,6 +1,5 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import 'lato-font/css/lato-font.css';
 
 import GenericPage from "@/components/GenericPage";
 
