@@ -110,8 +110,8 @@ export default function App() {
           (ACHS) through a data sharing agreement. The Paper Prison Initiative
           requested these data through public records act requests. Our records
           were downloaded between 9/23/2021 and 9/29/2021; the data we present
-          therefore ranges from 2010 through most of 2021.<b>*</b> Among its known
-          disadvantages are that it does not include information on legal
+          therefore ranges from 2010 through most of 2021.<b>*</b> Among its
+          known disadvantages are that it does not include information on legal
           representation, plea-bargaining, or the conditions of the arrest (such
           as whether or not a weapon was present) which might legitimately be
           taken into account by the prosecution in deciding to characterize a
@@ -122,7 +122,12 @@ export default function App() {
           up and maintained by CA DOJ.
         </p>
 
-        <p><b>*</b>2020 and 2021 rates per population are adjusted upward to account for apparent undercount in those years. The adjustment factor is to take the count of incidents and inflate it by a factor of mean_total#incidents(2015-2019)/total#incidents(2020 or 2021).</p>
+        <p>
+          <b>*</b>2020 and 2021 rates per population are adjusted upward to
+          account for apparent undercount in those years. The adjustment factor
+          is to take the count of incidents and inflate it by a factor of
+          mean_total#incidents(2015-2019)/total#incidents(2020 or 2021).
+        </p>
       </GenericPage>
       <GenericPage id="methodology">
         <h2>Methodology</h2>
@@ -145,18 +150,17 @@ export default function App() {
         <h3>Offense Data</h3>
         <p>
           By default, you will see data about all offenses at the selected event
-          point(s). For this first release, offense data includes the
-          top twenty criminal offenses (see list below). The criminal offense
-          data is limited to the top twenty offenses because the number of all
-          offenses is large, with very small sample sizes for many offenses,
-          especially at the county-specific level. Each Penal Code subsection is
-          treated as a distinct offense. Some common offenses are for probation
-          violations (e.g., Penal Code section 1203.2), and their only
-          corresponding event point is arrest. For any given incident, the
-          offense charged at court and disposition may be different from the
-          offense charged at arrest. So, the probability of a particular outcome
-          conditional on the prior event point may reflect imprecision going
-          from arrest to court event.
+          point(s). For this first release, offense data includes the top twenty
+          criminal offenses (see list below). The criminal offense data is
+          limited to the top twenty offenses because the number of all offenses
+          is large, with very small sample sizes for many offenses, especially
+          at the county-specific level. Each Penal Code subsection is treated as
+          a distinct offense. Some common offenses are for probation violations
+          (e.g., Penal Code section 1203.2), and their only corresponding event
+          point is arrest. For any given incident, the offense charged at court
+          and disposition may be different from the offense charged at arrest.
+          So, the probability of a particular outcome conditional on the prior
+          event point may reflect imprecision going from arrest to court event.
         </p>
 
         <table>
@@ -289,7 +293,7 @@ export default function App() {
           (i.e., a person was charged) took place at the court level.
         </p>
         <p>
-          Because each step represents a event point where discretion is   
+          Because each step represents a event point where discretion is
           exercised, the steps reveal disparities in outcomes for individuals
           who arguably are more similarly situated, in the specific sense of
           having gotten to that stage in the process. You can select event
@@ -321,7 +325,17 @@ export default function App() {
           population data from the American Community Survey (ACS), which is a
           large national survey run by the U.S. Census. All of our population
           estimates for different ethnicities use the 5-year ACS sample for the
-          combined period 2016-2020. ACS summary tables were accessed through the Census Bureau API interface (see <a href= "https://www.census.gov/programs-surveys/acs/data/data-via-api.html"> https://www.census.gov/programs-surveys/acs/data/data-via-api.html</a>), using the R package tidycensus (see <a href="https://walker-data.com/tidycensus/">https://walker-data.com/tidycensus/</a>).
+          combined period 2016-2020. ACS summary tables were accessed through
+          the Census Bureau API interface (see{" "}
+          <a href="https://www.census.gov/programs-surveys/acs/data/data-via-api.html">
+            {" "}
+            https://www.census.gov/programs-surveys/acs/data/data-via-api.html
+          </a>
+          ), using the R package tidycensus (see{" "}
+          <a href="https://walker-data.com/tidycensus/">
+            https://walker-data.com/tidycensus/
+          </a>
+          ).
         </p>
         <table>
           <tr>
@@ -471,8 +485,8 @@ export default function App() {
           group is 10 or fewer for the year being viewed. County data that are
           hidden when individual counties are selected will always be shown
           within statewide totals, as well as when multiple counties are
-          selected and confidentiality is not at risk. Our charts and
-          tables will show gaps and/or "N/A" when data are not available.
+          selected and confidentiality is not at risk. Our charts and tables
+          will show gaps and/or "N/A" when data are not available.
         </p>
       </GenericPage>
       <GenericPage id="acknowledgements">
@@ -480,8 +494,9 @@ export default function App() {
         <p>
           The styling of this website was inspired by the{" "}
           <a href="https://californiadata.burnsinstitute.org/about">
-            California State of Disparities 
-          </a> website, a data project of the the{" "}
+            California State of Disparities
+          </a>{" "}
+          website, a data project of the the{" "}
           <a href="https://californiadata.burnsinstitute.org/explore/counts#y=2018&c=1-58&o=1-60&d=1,7,15,17&a=5-24&g=f,m&e=a,b,l,n,w&m=dg">
             Burns Institute
           </a>
@@ -519,8 +534,22 @@ export default function App() {
       <GenericPage id="about-the-initiative">
         <h2>About the Initiative</h2>
         <p>
-          The Paper Prisons Initiative (paperprisons.org) is a multi-disciplinary research initiative focused on documenting and narrowing the “second chance gap” between eligibility for relief from the criminal justice system and its delivery due to hurdles in access to relevant information and data. The paper that describes the concept of the “second chance gap” is Colleen V. Chien, “America’s Paper Prisons: The Second Chance Gap,”119 Mich. L. Rev. 519 (2020)
+          The Paper Prisons Initiative (paperprisons.org) is a
+          multi-disciplinary research initiative focused on documenting and
+          narrowing the “second chance gap” between eligibility for relief from
+          the criminal justice system and its delivery due to hurdles in access
+          to relevant information and data. The paper that describes the concept
+          of the “second chance gap” is Colleen V. Chien, “America’s Paper
+          Prisons: The Second Chance Gap,”119 Mich. L. Rev. 519 (2020)
         </p>
+      </GenericPage>
+      <GenericPage id="media">
+        <video controls autoplay muted>
+          <source
+            src="https://paperprisons.org/video1879383566.mp4"
+            type="video/mp4"
+          />
+        </video>
       </GenericPage>
     </DynamicLayout>
   );
