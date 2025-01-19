@@ -22,6 +22,7 @@ export default function App() {
           <a href="?#methodology">Methodology</a>
           <a href="?#acknowledgements">Acknowledgments</a>
           <a href="?#about-the-initiative">About the Initiative</a>
+          <a href="?#faq">FAQ</a>
         </div>
       </div>
       <DynamicTool />
@@ -110,8 +111,8 @@ export default function App() {
           (ACHS) through a data sharing agreement. The Paper Prison Initiative
           requested these data through public records act requests. Our records
           were downloaded between 9/23/2021 and 9/29/2021; the data we present
-          therefore ranges from 2010 through most of 2021.<b>*</b> Among its known
-          disadvantages are that it does not include information on legal
+          therefore ranges from 2010 through most of 2021.<b>*</b> Among its
+          known disadvantages are that it does not include information on legal
           representation, plea-bargaining, or the conditions of the arrest (such
           as whether or not a weapon was present) which might legitimately be
           taken into account by the prosecution in deciding to characterize a
@@ -122,7 +123,12 @@ export default function App() {
           up and maintained by CA DOJ.
         </p>
 
-        <p><b>*</b>2020 and 2021 rates per population are adjusted upward to account for apparent undercount in those years. The adjustment factor is to take the count of incidents and inflate it by a factor of mean_total#incidents(2015-2019)/total#incidents(2020 or 2021).</p>
+        <p>
+          <b>*</b>2020 and 2021 rates per population are adjusted upward to
+          account for apparent undercount in those years. The adjustment factor
+          is to take the count of incidents and inflate it by a factor of
+          mean_total#incidents(2015-2019)/total#incidents(2020 or 2021).
+        </p>
       </GenericPage>
       <GenericPage id="methodology">
         <h2>Methodology</h2>
@@ -145,18 +151,17 @@ export default function App() {
         <h3>Offense Data</h3>
         <p>
           By default, you will see data about all offenses at the selected event
-          point(s). For this first release, offense data includes the
-          top twenty criminal offenses (see list below). The criminal offense
-          data is limited to the top twenty offenses because the number of all
-          offenses is large, with very small sample sizes for many offenses,
-          especially at the county-specific level. Each Penal Code subsection is
-          treated as a distinct offense. Some common offenses are for probation
-          violations (e.g., Penal Code section 1203.2), and their only
-          corresponding event point is arrest. For any given incident, the
-          offense charged at court and disposition may be different from the
-          offense charged at arrest. So, the probability of a particular outcome
-          conditional on the prior event point may reflect imprecision going
-          from arrest to court event.
+          point(s). For this first release, offense data includes the top twenty
+          criminal offenses (see list below). The criminal offense data is
+          limited to the top twenty offenses because the number of all offenses
+          is large, with very small sample sizes for many offenses, especially
+          at the county-specific level. Each Penal Code subsection is treated as
+          a distinct offense. Some common offenses are for probation violations
+          (e.g., Penal Code section 1203.2), and their only corresponding event
+          point is arrest. For any given incident, the offense charged at court
+          and disposition may be different from the offense charged at arrest.
+          So, the probability of a particular outcome conditional on the prior
+          event point may reflect imprecision going from arrest to court event.
         </p>
 
         <table>
@@ -289,7 +294,7 @@ export default function App() {
           (i.e., a person was charged) took place at the court level.
         </p>
         <p>
-          Because each step represents a event point where discretion is   
+          Because each step represents a event point where discretion is
           exercised, the steps reveal disparities in outcomes for individuals
           who arguably are more similarly situated, in the specific sense of
           having gotten to that stage in the process. You can select event
@@ -321,7 +326,17 @@ export default function App() {
           population data from the American Community Survey (ACS), which is a
           large national survey run by the U.S. Census. All of our population
           estimates for different ethnicities use the 5-year ACS sample for the
-          combined period 2016-2020. ACS summary tables were accessed through the Census Bureau API interface (see <a href= "https://www.census.gov/programs-surveys/acs/data/data-via-api.html"> https://www.census.gov/programs-surveys/acs/data/data-via-api.html</a>), using the R package tidycensus (see <a href="https://walker-data.com/tidycensus/">https://walker-data.com/tidycensus/</a>).
+          combined period 2016-2020. ACS summary tables were accessed through
+          the Census Bureau API interface (see{" "}
+          <a href="https://www.census.gov/programs-surveys/acs/data/data-via-api.html">
+            {" "}
+            https://www.census.gov/programs-surveys/acs/data/data-via-api.html
+          </a>
+          ), using the R package tidycensus (see{" "}
+          <a href="https://walker-data.com/tidycensus/">
+            https://walker-data.com/tidycensus/
+          </a>
+          ).
         </p>
         <table>
           <tr>
@@ -471,8 +486,8 @@ export default function App() {
           group is 10 or fewer for the year being viewed. County data that are
           hidden when individual counties are selected will always be shown
           within statewide totals, as well as when multiple counties are
-          selected and confidentiality is not at risk. Our charts and
-          tables will show gaps and/or "N/A" when data are not available.
+          selected and confidentiality is not at risk. Our charts and tables
+          will show gaps and/or "N/A" when data are not available.
         </p>
       </GenericPage>
       <GenericPage id="acknowledgements">
@@ -480,8 +495,9 @@ export default function App() {
         <p>
           The styling of this website was inspired by the{" "}
           <a href="https://californiadata.burnsinstitute.org/about">
-            California State of Disparities 
-          </a> website, a data project of the the{" "}
+            California State of Disparities
+          </a>{" "}
+          website, a data project of the the{" "}
           <a href="https://californiadata.burnsinstitute.org/explore/counts#y=2018&c=1-58&o=1-60&d=1,7,15,17&a=5-24&g=f,m&e=a,b,l,n,w&m=dg">
             Burns Institute
           </a>
@@ -519,8 +535,202 @@ export default function App() {
       <GenericPage id="about-the-initiative">
         <h2>About the Initiative</h2>
         <p>
-          The Paper Prisons Initiative (paperprisons.org) is a multi-disciplinary research initiative focused on documenting and narrowing the “second chance gap” between eligibility for relief from the criminal justice system and its delivery due to hurdles in access to relevant information and data. The paper that describes the concept of the “second chance gap” is Colleen V. Chien, “America’s Paper Prisons: The Second Chance Gap,”119 Mich. L. Rev. 519 (2020)
+          The Paper Prisons Initiative (paperprisons.org) is a
+          multi-disciplinary research initiative focused on documenting and
+          narrowing the “second chance gap” between eligibility for relief from
+          the criminal justice system and its delivery due to hurdles in access
+          to relevant information and data. The paper that describes the concept
+          of the “second chance gap” is Colleen V. Chien, “America’s Paper
+          Prisons: The Second Chance Gap,”119 Mich. L. Rev. 519 (2020)
         </p>
+      </GenericPage>
+      <GenericPage id="faq">
+        <h2>Racial Justice Act Tool FAQ</h2>
+        <ol>
+          <li>
+            <h4>What is the purpose of the Racial Justice Act (RJA) Tool?</h4>
+            <p>
+              The RJA Tool was developed to help individuals, legal
+              professionals, and researchers explore and analyze potential
+              racial disparities (defined as imbalances between treatment of
+              racial groups) within the California criminal justice system. It
+              does this by providing access to comprehensive data on arrests,
+              court actions, convictions, and sentences, allowing users to
+              examine disparities at different stages of the legal process. This
+              information can be used to support claims under the California
+              Racial Justice Act (CRJA), which prohibits racial bias in
+              convictions and sentencing.
+            </p>
+          </li>
+          <li>
+            <h4>
+              What data does the RJA Tool use and where does it come from?
+            </h4>
+            <p>
+              The tool uses anonymized data from the California Department of
+              Justice's Criminal Offender Record Information (CORI) database,
+              obtained through the Automated Criminal History System (ACHS). The
+              current edition of the data covers arrests, court actions,
+              convictions, and sentences in California from 2010 through
+              (nearly) the first nine months of 2021. The tool also uses
+              population data from the American Community Survey (ACS) 5-year
+              estimates for the years 2016-2020 to calculate rates per
+              population and disparities. The Paper Prisons team is working to
+              add later and earlier years and more detail - stay tuned by
+              subscribing at{" "}
+              <a href="mailto:rja@paperprisons.org">rja@paperprisons.org</a> if
+              you want to be in the know about these developments.
+            </p>
+          </li>
+          <li>
+            <h4>What are the limitations of the data used in the RJA Tool?</h4>
+            <p>
+              <ul>
+                <li>
+                  It lacks details about arrest circumstances (like weapon
+                  presence) or the defendant's conduct, which might be relevant
+                  to evaluating "similar conduct" under the RJA.
+                </li>
+                <li>It doesn't include juvenile or out-of-state records. </li>
+                <li>
+                  It might contain reporting errors from the Automated Criminal
+                  History System.{" "}
+                </li>
+                <li>
+                  Data on specific offenses and in smaller counties might be
+                  limited due to privacy concerns, as data is not reported if
+                  the underlying count is 10 or fewer.
+                </li>
+              </ul>
+            </p>
+          </li>
+          <li>
+            <h4>How can I use the RJA Tool to explore racial disparities?</h4>
+            <p>
+              The tool allows you to customize data by year, county, event point
+              (arrest, conviction, etc.), race/ethnicity, measurement (raw
+              number, rate per population, disparity v. White), and offense. You
+              can analyze data for specific racial/ethnic groups and compare
+              their rates of arrest, conviction, sentencing, etc., to those of
+              White individuals. This comparison reveals potential disparities
+              and can be used to support claims under the CRJA.
+            </p>
+          </li>
+          <li>
+            <h4>
+              What are the different measurements available in the RJA Tool and
+              what do they mean?
+            </h4>
+            <p>
+              The RJA Tool offers three measurements:
+              <ol>
+                <li>
+                  <b>Raw Number</b>: This is the count of incidents for the
+                  selected category (e.g., arrests for Black individuals for a
+                  specific offense in a particular county and year).
+                </li>
+                <li>
+                  <b>Annualized Rate per Population</b>: This measures how often
+                  a specific event happens for a racial/ethnic group compared to
+                  their population in the county. It's calculated by dividing
+                  the raw number of incidents by the group's population size,
+                  and annualized to represent the average number of incidents
+                  per year.
+                </li>
+                <li>
+                  <b>Population Disparity v. White</b>: This compares the rate
+                  per population of a racial/ethnic group to that of White
+                  individuals. It indicates the relative likelihood of a person
+                  from the selected group experiencing the event compared to a
+                  White person, taking population sizes into account.
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <h4>
+              {" "}
+              What does a "population disparity v. White" value greater than 1
+              mean?
+            </h4>
+            <p>
+              A value greater than 1 means the selected racial/ethnic group
+              experiences the specific event (arrest, conviction, etc.) at a
+              higher rate compared to White individuals, even when considering
+              their respective population sizes. For example, a value of 2 would
+              mean the selected group is twice as likely to experience that
+              event compared to White individuals.
+            </p>
+          </li>
+          <li>
+            <h4>
+              What does a "population disparity v. White" value less than 1
+              mean?
+            </h4>
+            <p>
+              This means that the selected racial/ethnic group experiences the
+              specific event (arrest, conviction, etc.) at a lower rate compared
+              to White individuals.
+            </p>
+          </li>
+          <li>
+            <h4>When I click on a county, nothing shows up. Why? </h4>
+            <p>
+              Some counties are too small and contain less than 10 data points.
+              In these instances, the RJA tool will state it is unlimited to
+              display as there is insufficient data. As we process more data in
+              the future, this may change.
+            </p>
+          </li>
+          <li>
+            <h4>
+              How does the RJA Tool handle data when multiple years, counties,
+              or offenses are selected?
+            </h4>
+            <p>
+              When combining data across multiple years, counties, or offenses,
+              the tool aggregates/summarizes the data. For raw counts, it adds
+              the counts from each selection. For rate per population and
+              disparity v. White, it calculates weighted averages considering
+              the combined event counts and population sizes. If data is
+              unavailable for any selection due to limitations, the tool
+              excludes it and displays a warning message.
+            </p>
+          </li>
+          <li>
+            <h4>
+              What should I do if I have further questions about the RJA Tool?
+            </h4>
+            <p>
+              Our website has a lot of resources, including a video explainer
+              that walks through a hypothetical, a podcast, and other goodies to
+              come. But you can also reach out to the Paper Prisons RJA Tool
+              team with questions, comments, or suggestions at
+              rja@paperprisons.org. We will be happy to assist you and address
+              any concerns you might have.
+            </p>
+          </li>
+        </ol>
+      </GenericPage>
+      <GenericPage id="media">
+        <div>
+          <h3>Videos</h3>
+          <video controls autoplay muted>
+            <source
+              src="https://paperprisons.org/20250123/video.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <div>
+          <h3>PodCast</h3>
+          <audio controls>
+            <source
+              src="https://paperprisons.org/20250123/audio.wav"
+              type="audio/wav"
+            />
+          </audio>
+        </div>
       </GenericPage>
     </DynamicLayout>
   );
