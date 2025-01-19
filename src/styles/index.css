@@ -524,3 +524,7 @@ video {
   width: 100%;
   aspect-ratio: 1280/720;
 }
+
+audio {
+  width: 100%;
+}

@@ -22,6 +22,7 @@ export default function App() {
           <a href="?#methodology">Methodology</a>
           <a href="?#acknowledgements">Acknowledgments</a>
           <a href="?#about-the-initiative">About the Initiative</a>
+          <a href="?#faq">FAQ</a>
         </div>
       </div>
       <DynamicTool />
@@ -543,13 +544,193 @@ export default function App() {
           Prisons: The Second Chance Gap,”119 Mich. L. Rev. 519 (2020)
         </p>
       </GenericPage>
+      <GenericPage id="faq">
+        <h2>Racial Justice Act Tool FAQ</h2>
+        <ol>
+          <li>
+            <h4>What is the purpose of the Racial Justice Act (RJA) Tool?</h4>
+            <p>
+              The RJA Tool was developed to help individuals, legal
+              professionals, and researchers explore and analyze potential
+              racial disparities (defined as imbalances between treatment of
+              racial groups) within the California criminal justice system. It
+              does this by providing access to comprehensive data on arrests,
+              court actions, convictions, and sentences, allowing users to
+              examine disparities at different stages of the legal process. This
+              information can be used to support claims under the California
+              Racial Justice Act (CRJA), which prohibits racial bias in
+              convictions and sentencing.
+            </p>
+          </li>
+          <li>
+            <h4>
+              What data does the RJA Tool use and where does it come from?
+            </h4>
+            <p>
+              The tool uses anonymized data from the California Department of
+              Justice's Criminal Offender Record Information (CORI) database,
+              obtained through the Automated Criminal History System (ACHS). The
+              current edition of the data covers arrests, court actions,
+              convictions, and sentences in California from 2010 through
+              (nearly) the first nine months of 2021. The tool also uses
+              population data from the American Community Survey (ACS) 5-year
+              estimates for the years 2016-2020 to calculate rates per
+              population and disparities. The Paper Prisons team is working to
+              add later and earlier years and more detail - stay tuned by
+              subscribing at{" "}
+              <a href="mailto:rja@paperprisons.org">rja@paperprisons.org</a> if
+              you want to be in the know about these developments.
+            </p>
+          </li>
+          <li>
+            <h4>What are the limitations of the data used in the RJA Tool?</h4>
+            <p>
+              <ul>
+                <li>
+                  It lacks details about arrest circumstances (like weapon
+                  presence) or the defendant's conduct, which might be relevant
+                  to evaluating "similar conduct" under the RJA.
+                </li>
+                <li>It doesn't include juvenile or out-of-state records. </li>
+                <li>
+                  It might contain reporting errors from the Automated Criminal
+                  History System.{" "}
+                </li>
+                <li>
+                  Data on specific offenses and in smaller counties might be
+                  limited due to privacy concerns, as data is not reported if
+                  the underlying count is 10 or fewer.
+                </li>
+              </ul>
+            </p>
+          </li>
+          <li>
+            <h4>How can I use the RJA Tool to explore racial disparities?</h4>
+            <p>
+              The tool allows you to customize data by year, county, event point
+              (arrest, conviction, etc.), race/ethnicity, measurement (raw
+              number, rate per population, disparity v. White), and offense. You
+              can analyze data for specific racial/ethnic groups and compare
+              their rates of arrest, conviction, sentencing, etc., to those of
+              White individuals. This comparison reveals potential disparities
+              and can be used to support claims under the CRJA.
+            </p>
+          </li>
+          <li>
+            <h4>
+              What are the different measurements available in the RJA Tool and
+              what do they mean?
+            </h4>
+            <p>
+              The RJA Tool offers three measurements:
+              <ol>
+                <li>
+                  <b>Raw Number</b>: This is the count of incidents for the
+                  selected category (e.g., arrests for Black individuals for a
+                  specific offense in a particular county and year).
+                </li>
+                <li>
+                  <b>Annualized Rate per Population</b>: This measures how often
+                  a specific event happens for a racial/ethnic group compared to
+                  their population in the county. It's calculated by dividing
+                  the raw number of incidents by the group's population size,
+                  and annualized to represent the average number of incidents
+                  per year.
+                </li>
+                <li>
+                  <b>Population Disparity v. White</b>: This compares the rate
+                  per population of a racial/ethnic group to that of White
+                  individuals. It indicates the relative likelihood of a person
+                  from the selected group experiencing the event compared to a
+                  White person, taking population sizes into account.
+                </li>
+              </ol>
+            </p>
+          </li>
+          <li>
+            <h4>
+              {" "}
+              What does a "population disparity v. White" value greater than 1
+              mean?
+            </h4>
+            <p>
+              A value greater than 1 means the selected racial/ethnic group
+              experiences the specific event (arrest, conviction, etc.) at a
+              higher rate compared to White individuals, even when considering
+              their respective population sizes. For example, a value of 2 would
+              mean the selected group is twice as likely to experience that
+              event compared to White individuals.
+            </p>
+          </li>
+          <li>
+            <h4>
+              What does a "population disparity v. White" value less than 1
+              mean?
+            </h4>
+            <p>
+              This means that the selected racial/ethnic group experiences the
+              specific event (arrest, conviction, etc.) at a lower rate compared
+              to White individuals.
+            </p>
+          </li>
+          <li>
+            <h4>When I click on a county, nothing shows up. Why? </h4>
+            <p>
+              Some counties are too small and contain less than 10 data points.
+              In these instances, the RJA tool will state it is unlimited to
+              display as there is insufficient data. As we process more data in
+              the future, this may change.
+            </p>
+          </li>
+          <li>
+            <h4>
+              How does the RJA Tool handle data when multiple years, counties,
+              or offenses are selected?
+            </h4>
+            <p>
+              When combining data across multiple years, counties, or offenses,
+              the tool aggregates/summarizes the data. For raw counts, it adds
+              the counts from each selection. For rate per population and
+              disparity v. White, it calculates weighted averages considering
+              the combined event counts and population sizes. If data is
+              unavailable for any selection due to limitations, the tool
+              excludes it and displays a warning message.
+            </p>
+          </li>
+          <li>
+            <h4>
+              What should I do if I have further questions about the RJA Tool?
+            </h4>
+            <p>
+              Our website has a lot of resources, including a video explainer
+              that walks through a hypothetical, a podcast, and other goodies to
+              come. But you can also reach out to the Paper Prisons RJA Tool
+              team with questions, comments, or suggestions at
+              rja@paperprisons.org. We will be happy to assist you and address
+              any concerns you might have.
+            </p>
+          </li>
+        </ol>
+      </GenericPage>
       <GenericPage id="media">
-        <video controls autoplay muted>
-          <source
-            src="https://paperprisons.org/video1879383566.mp4"
-            type="video/mp4"
-          />
-        </video>
+        <div>
+          <h3>Videos</h3>
+          <video controls autoplay muted>
+            <source
+              src="https://paperprisons.org/20250123/video.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <div>
+          <h3>PodCast</h3>
+          <audio controls>
+            <source
+              src="https://paperprisons.org/20250123/audio.wav"
+              type="audio/wav"
+            />
+          </audio>
+        </div>
       </GenericPage>
     </DynamicLayout>
   );
