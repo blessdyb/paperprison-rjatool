@@ -9,9 +9,7 @@ const nextConfig = {
       },
     ];
   },
-  assetPrefix: process.env.DEBUG
-    ? null
-    : "https://blessdyb.github.io/paperprison-rjatool/",
+  assetPrefix: process.env.DEBUG ? null : "http://rja.paperprisons.org/",
 };
 
 module.exports = nextConfig;

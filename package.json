@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "DEBUG=1 next dev",
-    "build": "next build && next export -o docs/ && touch ./docs/.nojekyll",
+    "build": "NODE_ENV=production next build && rm -rf ./docs/* && next export -o docs/ && touch ./docs/.nojekyll",
     "lint": "next lint"
   },
   "dependencies": {
